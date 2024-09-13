@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table,tr,td{
+        border:1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+    <script>
+        var data_get=JSON.parse(window.localStorage.getItem("Details"));
+        console.log(data_get);
+        var table=document.createElement("table");
+        var tr=document.createElement("tr");
+    var td1=document.createElement("td");
+    td1.innerText=data_get["id"];
+    var td2=document.createElement("td");
+    td2.innerText=data_get["title"];
+    var td3=document.createElement("td");
+    td3.innerText=data_get["price"];
+    var td4=document.createElement("td");
+    td4.innerText=data_get["description"];
+    var td5=document.createElement("td");
+    td5.innerText=data_get["category"];
+    var td6=document.createElement("td");
+    var img=document.createElement("img");
+    img.src=data_get["image"];
+    img.style.height="80px";
+    img.style.width="80px";
+    td6.append(img);
+    var td7=document.createElement("td");
+    
+    td7.innerText="rate: "+data_get["rating"]["rate"];
+    var td9=document.createElement("td");
+    
+    td9.innerText="rate: "+data_get["rating"]["count"];
+
+    tr.append(td1,td2,td3,td4,td5,td6,td7,td9);
+    table.append(tr);
+    document.body.append(table);
+    </script>
+</body>
+</html>
